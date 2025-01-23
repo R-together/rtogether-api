@@ -1,23 +1,7 @@
 version: '3.8'
-services:
-  postgres:
-    image: postgres:latest
-    container_name: postgres_container
-    environment:
-      POSTGRES_USER: user
-      POSTGRES_PASSWORD: supasibimilhoesenha
-      POSTGRES_DB: rtogether_db
-    ports:
-      - "5432:5432"
 
+services:
   app:
     build: .
-    container_name: springboot_app
     ports:
-      - "8080:8080"
-    depends_on:
-      - postgres
-    environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/rtogether_db
-      SPRING_DATASOURCE_USERNAME: user
-      SPRING_DATASOURCE_PASSWORD: supasibimilhoesenha
+      - "8082:8080"
