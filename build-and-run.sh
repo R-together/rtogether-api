@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Building the Spring Boot application..."
-mvn clean package
+mvn clean package test
 
 echo "Building the Docker image..."
 docker-compose build
