@@ -1,2 +1,5 @@
 /Users/italo.ribeiro/studyspace/rtogether-api/src/main/java/com/rtogether/api/ApiApplication.java
-/Users/italo.ribeiro/studyspace/rtogether-api/src/main/java/com/rtogether/api/controller/HelloWorldController.java
+/Users/italo.ribeiro/studyspace/rtogether-api/src/main/java/com/rtogether/api/controller/UserController.java
+/Users/italo.ribeiro/studyspace/rtogether-api/src/main/java/com/rtogether/api/entity/User.java
+/Users/italo.ribeiro/studyspace/rtogether-api/src/main/java/com/rtogether/api/repository/UserRepository.java
+/Users/italo.ribeiro/studyspace/rtogether-api/src/main/java/com/rtogether/api/service/UserService.java

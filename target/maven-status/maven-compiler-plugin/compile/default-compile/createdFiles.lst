@@ -1,2 +1,5 @@
 com/rtogether/api/ApiApplication.class
-com/rtogether/api/controller/HelloWorldController.class
+com/rtogether/api/repository/UserRepository.class
+com/rtogether/api/entity/User.class
+com/rtogether/api/service/UserService.class
+com/rtogether/api/controller/UserController.class

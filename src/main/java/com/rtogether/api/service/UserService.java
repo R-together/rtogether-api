@@ -12,10 +12,6 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public String getHelloWorldText(){
-        return "Hello world from service";
-    }
-
     public User createUser(User user) {
         return userRepository.save(user);
     }
