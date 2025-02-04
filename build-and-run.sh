@@ -1,5 +1,8 @@
 #!/bin/bash
 
+echo "Exporting env variables..."
+export $(cat .env | xargs)
+
 echo "Building the Spring Boot application..."
 mvn clean package test
 
