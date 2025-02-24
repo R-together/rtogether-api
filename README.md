@@ -37,8 +37,9 @@ chmod +x podman-build-and-run.sh
 Execute the script to build and run the project:
 ```sh
 ./podman-build-and-run.sh
-Manual Execution
 ```
+
+### Manual Execution
 If you prefer not to use the scripts, follow these steps:
 
 1. Build the project using Maven:
@@ -60,5 +61,5 @@ podman-compose up -d
 
 5. Execute the tests:
 ```sh
-mvn tests
+mvn test
 ```
