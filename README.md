@@ -42,17 +42,21 @@ Execute the script to build and run the project:
 ### Manual Execution
 If you prefer not to use the scripts, follow these steps:
 
-1. Build the project using Maven:
+1. Export env variables
+```sh
+export $(cat .env | xargs)
+```
+2. Build the project using Maven:
 ```sh
 mvn clean package -DskipTests
 ```
-2. Build the Docker (or Podman) image:
+3. Build the Docker (or Podman) image:
 ```sh
 docker-compose build
 # or
 podman-compose build
 ```
-3. Start the containers:
+4. Start the containers:
 ```sh
 docker-compose up -d
 # or
