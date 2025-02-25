@@ -41,9 +41,9 @@ Manual Execution
 ```
 If you prefer not to use the scripts, follow these steps:
 
-1. Run tests and build the project using Maven:
+1. Build the project using Maven:
 ```sh
-mvn clean package test
+mvn clean package -DskipTests
 ```
 2. Build the Docker (or Podman) image:
 ```sh
@@ -51,9 +51,14 @@ docker-compose build
 # or
 podman-compose build
 ```
-Start the containers:
+3. Start the containers:
 ```sh
-docker-compose up
+docker-compose up -d
 # or
-podman-compose up
+podman-compose up -d
+```
+
+5. Execute the tests:
+```sh
+mvn tests
 ```
