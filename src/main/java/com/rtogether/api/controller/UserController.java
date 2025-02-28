@@ -1,6 +1,8 @@
 package com.rtogether.api.controller;
 
+import com.rtogether.api.entity.Application;
 import com.rtogether.api.entity.User;
+import com.rtogether.api.service.ApplicationService;
 import com.rtogether.api.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -12,10 +14,12 @@ import java.util.List;
 @RequestMapping("/users")
 public class UserController {
     private final UserService userService;
+    private final ApplicationService applicationService;
 
     @Autowired
-    public UserController(UserService userService) {
+    public UserController(UserService userService, ApplicationService applicationService) {
         this.userService = userService;
+        this.applicationService = applicationService;
     }
 
     @PostMapping
@@ -46,5 +50,11 @@ public class UserController {
     public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
         userService.deleteUser(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/{id}/applications")
+    public  ResponseEntity<List<Application>> getApplicationsByMenteeId(@PathVariable Long id){
+        List<Application> applications = this.applicationService.getApplicationsByMenteeId(id);
+        return ResponseEntity.ok(applications);
     }
 }

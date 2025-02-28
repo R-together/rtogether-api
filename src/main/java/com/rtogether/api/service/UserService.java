@@ -1,14 +1,17 @@
 package com.rtogether.api.service;
 import com.rtogether.api.repository.UserRepository;
+import com.rtogether.api.util.ServiceUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.rtogether.api.entity.User;
 
+import java.sql.Timestamp;
+import java.time.Instant;
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class UserService {
+public class UserService extends ServiceUtils {
     @Autowired
     private UserRepository userRepository;
 
@@ -26,14 +29,8 @@ public class UserService {
 
     public User updateUser(Long id, User userDetails) {
         User user = userRepository.findById(id).orElseThrow(() -> new RuntimeException("User not found"));
-        user.setEmail(userDetails.getEmail());
-        user.setName(userDetails.getName());
-        user.setPhone(userDetails.getPhone());
-        user.setPassword_hash(userDetails.getPassword_hash());
-        user.setBio(userDetails.getBio());
-        user.setProfile_image_url(userDetails.getProfile_image_url());
-        user.setJob(userDetails.getJob());
-        user.setInterest(userDetails.getInterest());
+        copyNonNullProperties(userDetails, user);
+        user.setUpdated_at(Timestamp.from(Instant.now()));
         return userRepository.save(user);
     }
 
