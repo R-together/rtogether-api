@@ -48,7 +48,7 @@ public class UserServiceTest {
     @Test
     public void testGetUserById() {
         User user = TestUserFactory.createSampleUser();
-        user.setUser_id(1L);
+        user.setUserId(1L);
         when(userRepository.findById(1L)).thenReturn(Optional.of(user));
         User foundUser = userService.getUserById(1L).orElse(null);
         assertEquals(user.getEmail(), foundUser.getEmail());
@@ -57,7 +57,7 @@ public class UserServiceTest {
     @Test
     public void testUpdateUser() {
         User user = TestUserFactory.createSampleUser();
-        user.setUser_id(1L);
+        user.setUserId(1L);
         User updatedDetails = TestUserFactory.createUserWithCustomEmail("updated@example.com");
         when(userRepository.findById(1L)).thenReturn(Optional.of(user));
         when(userRepository.save(user)).thenReturn(user);
@@ -68,7 +68,7 @@ public class UserServiceTest {
     @Test
     public void testDeleteUser() {
         User user = TestUserFactory.createSampleUser();
-        user.setUser_id(1L);
+        user.setUserId(1L);
         doNothing().when(userRepository).deleteById(1L);
         userService.deleteUser(1L);
         verify(userRepository, times(1)).deleteById(1L);
